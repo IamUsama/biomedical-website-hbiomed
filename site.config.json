@@ -1,0 +1,149 @@
+{
+  "site": {
+    "url": "https://iamusama.github.io",
+    "language": "en",
+    "locale": "en_PK"
+  },
+  "company": {
+    "name": "H Biomed Services",
+    "shortName": "H Biomed",
+    "tagline": "Dealers in New & Refurbished Medical Equipment, Accessories, Hospital Furniture, and Medical Gas Pipeline Systems. We also provide Installation, Servicing, Repair, and Maintenance Services.",
+    "description": "Dealers in new & refurbished medical equipment, accessories, hospital furniture and medical gas pipeline systems. Installation, servicing, repair and maintenance.",
+    "address": "House No: 81, Barkat Bhai Town, Autobhan Road, Hyderabad",
+    "city": "Hyderabad",
+    "country": "PK",
+    "phone": "923332643740",
+    "whatsapp": "",
+    "email": "biomedservices18h@gmail.com",
+    "taxLabel": "NTN",
+    "taxNumber": "",
+    "showTaxNumber": false,
+    "hours": "",
+    "mapUrl": "",
+    "social": {
+      "facebook": "",
+      "linkedin": "",
+      "instagram": ""
+    },
+    "seoTitle": "H Biomed Services — Medical Equipment, Hyderabad"
+  },
+  "contact": {
+    "web3formsKey": "",
+    "responseTime": "We reply within one working day."
+  },
+  "hero": {
+    "eyebrow": "Medical equipment · Installation · Service",
+    "title": "Medical equipment you can depend on.",
+    "lead": "New and refurbished medical equipment, accessories, hospital furniture and medical gas pipeline systems — with installation, servicing and repair.",
+    "photo": "ward"
+  },
+  "services": [
+    {
+      "icon": "stethoscope",
+      "title": "New & refurbished equipment",
+      "text": "Medical machines and equipment for clinics and hospitals, supplied new or refurbished."
+    },
+    {
+      "icon": "plug",
+      "title": "Accessories",
+      "text": "Patient-monitor accessories such as SpO2 probes, NIBP hoses and BP cuffs, and other medical accessories."
+    },
+    {
+      "icon": "bed-double",
+      "title": "Hospital furniture",
+      "text": "Furniture for wards, clinics and hospitals."
+    },
+    {
+      "icon": "wind",
+      "title": "Medical gas pipeline systems",
+      "text": "Medical gas pipeline systems for hospitals and clinics."
+    },
+    {
+      "icon": "wrench",
+      "title": "Installation",
+      "text": "Installation of the equipment and systems we supply."
+    },
+    {
+      "icon": "life-buoy",
+      "title": "Servicing, repair & maintenance",
+      "text": "Servicing, repair and maintenance to keep your equipment working."
+    }
+  ],
+  "products": [
+    {
+      "title": "Medical equipment",
+      "photo": "monitor-standby",
+      "items": [
+        "New equipment",
+        "Refurbished equipment",
+        "Patient monitors"
+      ]
+    },
+    {
+      "title": "Accessories",
+      "photo": "monitor-accessories",
+      "items": [
+        "SpO2 probes",
+        "NIBP hoses and sets",
+        "BP cuffs"
+      ]
+    },
+    {
+      "title": "Furniture & gas systems",
+      "photo": "ward",
+      "items": [
+        "Hospital furniture",
+        "Medical gas pipeline systems"
+      ]
+    }
+  ],
+  "process": [
+    {
+      "title": "Tell us what you need",
+      "text": "Call, message or send the form."
+    },
+    {
+      "title": "We advise & quote",
+      "text": "Clear options and a written quotation."
+    },
+    {
+      "title": "Delivery & installation",
+      "text": "Supplied, installed and tested."
+    },
+    {
+      "title": "Ongoing support",
+      "text": "Servicing, repairs and spares."
+    }
+  ],
+  "about": {
+    "title": "About H Biomed Services",
+    "paragraphs": [
+      "H Biomed Services is a dealer in new and refurbished medical equipment, accessories, hospital furniture and medical gas pipeline systems, based in Hyderabad.",
+      "We also provide installation, servicing, repair and maintenance, so one supplier can look after your equipment from purchase onwards."
+    ],
+    "points": [
+      "New and refurbished medical equipment",
+      "Accessories for patient monitors and more",
+      "Installation, servicing, repair and maintenance"
+    ],
+    "photo": "operating-theatre"
+  },
+  "photoAlt": {
+    "ward": "A bright hospital ward with a row of made beds and privacy curtains",
+    "operating-theatre": "An operating theatre with a surgical light, pendant and medical gas outlets",
+    "patient-monitor": "A patient monitor showing a heart-rate waveform and oxygen saturation reading",
+    "bp-monitor": "A digital blood pressure monitor with an adult arm cuff",
+    "monitor-accessories": "A bedside monitor with SpO2 probe and blood pressure cuff leads",
+    "monitor-standby": "A modern patient monitor on a wall mount, showing standby"
+  },
+  "legal": {
+    "privacyContact": "biomedservices18h@gmail.com",
+    "updated": "2026-10-17"
+  },
+  "vendor": {
+    "name": "ShaikhTECH",
+    "email": "usamashaikh99@gmail.com",
+    "phone": "+923337779890",
+    "show": true
+  }
+}

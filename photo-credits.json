@@ -1,0 +1,8 @@
+[
+  { "file": "ward.jpg", "subject": "Hospital ward", "photographer": "Adhy Savala", "page": "https://unsplash.com/photos/zbpgmGe27p8", "license": "Unsplash License" },
+  { "file": "operating-theatre.jpg", "subject": "Operating theatre", "photographer": "Ezebunwo Omachi", "page": "https://unsplash.com/photos/a-nurse-prepares-instruments-in-an-operating-room-4DYgu3mSjGA", "license": "Unsplash License" },
+  { "file": "patient-monitor.jpg", "subject": "Patient monitor", "photographer": "Jair Lázaro", "page": "https://unsplash.com/photos/0lrJo37r6Nk", "license": "Unsplash License" },
+  { "file": "bp-monitor.jpg", "subject": "Blood pressure monitor and cuff", "photographer": "Mockup Graphics", "page": "https://unsplash.com/photos/blood-pressure-monitor-with-grey-cuff-i1iqQRLULlg", "license": "Unsplash License" },
+  { "file": "monitor-accessories.jpg", "subject": "Monitor with SpO2 probe and NIBP cuff", "photographer": "Brian Wangenheim", "page": "https://unsplash.com/photos/KVasPlAfs1Y", "license": "Unsplash License" },
+  { "file": "monitor-standby.jpg", "subject": "Wall-mounted patient monitor", "photographer": "Judy Beth Morris", "page": "https://unsplash.com/photos/uBM__Syyiew", "license": "Unsplash License" }
+]

@@ -1,0 +1,76 @@
+---
+import Base from '../layouts/Base.astro';
+import Photo from '../components/Photo.astro';
+import Cta from '../components/Cta.astro';
+import { c, site, url, icon, prettyPhone, telHref } from '../lib/site';
+const { hero, services, products, process } = site;
+---
+<Base description={c.description} path="/">
+  <section class="hero">
+    <Photo name={hero.photo} class="hero-img" sizes="100vw" widths={[800, 1200, 1600, 2000]} eager />
+    <div class="wrap">
+      <p class="eyebrow">{hero.eyebrow}</p>
+      <h1>{hero.title}</h1>
+      <p class="lead">{hero.lead}</p>
+      <div class="actions">
+        <a class="btn primary" href={url('/contact/')}>Request a quote</a>
+        <a class="btn light" href={telHref(c.phone)}>Call {prettyPhone(c.phone)}</a>
+      </div>
+      <p class="tag">{c.tagline}</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">What we do</p>
+        <h2>Equipment, installation and service — from one team.</h2>
+      </div>
+      <div class="grid">
+        {services.map((s) => (
+          <article class="card">
+            <div class="icon" set:html={icon(s.icon)} />
+            <h3>{s.title}</h3>
+            <p>{s.text}</p>
+          </article>
+        ))}
+      </div>
+      <div class="actions"><a class="btn ghost" href={url('/services/')}>All services</a></div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Products</p>
+        <h2>What we supply</h2>
+      </div>
+      <div class="grid">
+        {products.map((p) => (
+          <article class="card photo-card">
+            <Photo name={p.photo} sizes="(min-width: 1000px) 340px, (min-width: 640px) 45vw, 92vw" widths={[400, 640, 900]} />
+            <div class="body">
+              <h3>{p.title}</h3>
+              <ul class="ticks">{p.items.map((i) => <li>{i}</li>)}</ul>
+            </div>
+          </article>
+        ))}
+      </div>
+      <div class="actions"><a class="btn ghost" href={url('/products/')}>Browse products</a></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">How it works</p>
+        <h2>Simple, from first call to ongoing support</h2>
+      </div>
+      <ol class="steps">
+        {process.map((s) => <li><h3>{s.title}</h3><p>{s.text}</p></li>)}
+      </ol>
+    </div>
+  </section>
+
+  <Cta />
+</Base>

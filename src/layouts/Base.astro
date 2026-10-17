@@ -1,0 +1,119 @@
+---
+import '@fontsource-variable/inter';
+import '../styles/global.css';
+import { c, site, url, prettyPhone, telHref, waHref, icon } from '../lib/site';
+
+interface Props { title?: string; description?: string; path?: string; noindex?: boolean }
+const { title, description = c.description, path = '/', noindex = false } = Astro.props;
+const pageTitle = title ? `${title} | ${c.name}` : c.seoTitle || c.name;
+const canonical = new URL(url(path), Astro.site).href;
+const ogImage = new URL(url('/og.png'), Astro.site).href;
+const nav = [
+  { href: '/', label: 'Home' },
+  { href: '/services/', label: 'Services' },
+  { href: '/products/', label: 'Products' },
+  { href: '/about/', label: 'About' },
+];
+const here = Astro.url.pathname.replace(url('/').replace(/\/$/, ''), '') || '/';
+const sameAs = Object.values(c.social).filter(Boolean);
+const ld = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalBusiness',
+  name: c.name,
+  description: c.description,
+  url: new URL(url('/'), Astro.site).href,
+  image: ogImage,
+  telephone: `+${c.phone}`,
+  ...(c.email ? { email: c.email } : {}),
+  address: { '@type': 'PostalAddress', streetAddress: c.address, addressLocality: c.city, addressCountry: c.country },
+  ...(sameAs.length ? { sameAs } : {}),
+};
+const csp = "default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; connect-src 'self' https://api.web3forms.com; form-action 'self'; base-uri 'self'; object-src 'none'";
+---
+<!doctype html>
+<html lang={site.site.language}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Security-Policy" content={csp} />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="theme-color" content="#0e74a4" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    {noindex ? <meta name="robots" content="noindex" /> : <meta name="robots" content="index, follow, max-image-preview:large" />}
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href={url('/brand/icon.png')} type="image/png" />
+    <link rel="apple-touch-icon" href={url('/brand/icon.png')} />
+    <link rel="manifest" href={url('/site.webmanifest')} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={c.name} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content={site.site.locale} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json" set:html={JSON.stringify(ld)} />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="top">
+      <div class="wrap">
+        <a class="brand" href={url('/')} aria-label={`${c.name} — home`}>
+          <img src={url('/brand/icon.png')} alt="" width="40" height="40" />
+          <span>{c.name}</span>
+        </a>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+          <span class="icon" set:html={icon('menu')} />
+        </button>
+        <nav class="nav" id="site-nav" aria-label="Main">
+          {nav.map((n) => <a href={url(n.href)} aria-current={here === n.href ? 'page' : undefined}>{n.label}</a>)}
+          <a class="cta" href={url('/contact/')} aria-current={here === '/contact/' ? 'page' : undefined}>Contact us</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main"><slot /></main>
+
+    <div class="float">
+      <a class="call" href={telHref(c.phone)} aria-label={`Call ${prettyPhone(c.phone)}`}><span class="icon" set:html={icon('phone')} /></a>
+      {c.whatsapp && <a class="wa" href={waHref(c.whatsapp, `Hello ${c.name}, I would like to enquire about…`)} rel="noopener" aria-label="Chat on WhatsApp"><span class="icon" set:html={icon('message-circle')} /></a>}
+    </div>
+
+    <footer class="foot">
+      <div class="wrap">
+        <div class="cols">
+          <div>
+            <a class="brand" href={url('/')}><img src={url('/brand/icon.png')} alt="" width="40" height="40" /><span>{c.name}</span></a>
+            <p>{c.tagline}</p>
+          </div>
+          <div>
+            <h2>Explore</h2>
+            <ul>
+              {nav.map((n) => <li><a href={url(n.href)}>{n.label}</a></li>)}
+              <li><a href={url('/contact/')}>Contact</a></li>
+              <li><a href={url('/privacy/')}>Privacy</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2>Contact</h2>
+            <ul>
+              <li>{c.address}</li>
+              <li><a href={telHref(c.phone)}>{prettyPhone(c.phone)}</a></li>
+              {c.email && <li><a href={`mailto:${c.email}`}>{c.email}</a></li>}
+              {c.hours && <li>{c.hours}</li>}
+              {c.showTaxNumber && c.taxNumber && <li>{c.taxLabel}: {c.taxNumber}</li>}
+            </ul>
+          </div>
+        </div>
+        <div class="legal">
+          <span>© {new Date().getFullYear()} {c.name}. All rights reserved.</span>
+          {site.vendor.show && <span>Website by <a href={`mailto:${site.vendor.email}`}>{site.vendor.name}</a></span>}
+        </div>
+      </div>
+    </footer>
+    <script src="../scripts/nav.js"></script>
+  </body>
+</html>

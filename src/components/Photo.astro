@@ -1,0 +1,18 @@
+---
+import { Picture } from 'astro:assets';
+import { photo, photoAlt } from '../lib/site';
+
+interface Props { name: string; sizes: string; widths?: number[]; eager?: boolean; class?: string }
+const { name, sizes, widths = [480, 800, 1200], eager = false, class: cls } = Astro.props;
+---
+<Picture
+  src={photo(name)}
+  alt={photoAlt(name)}
+  formats={['avif', 'webp']}
+  widths={widths}
+  sizes={sizes}
+  loading={eager ? 'eager' : 'lazy'}
+  fetchpriority={eager ? 'high' : 'auto'}
+  decoding={eager ? 'sync' : 'async'}
+  class={cls}
+/>

@@ -1,0 +1,26 @@
+---
+import Base from '../layouts/Base.astro';
+import Photo from '../components/Photo.astro';
+import Cta from '../components/Cta.astro';
+import { c, site } from '../lib/site';
+---
+<Base title="Products" description={`Products supplied by ${c.name}: ${site.products.map((p) => p.title.toLowerCase()).join(', ')}.`} path="/products/">
+  <div class="page-head"><div class="wrap">
+    <h1>Products</h1>
+    <p>A selection of what we supply. Not listed? Ask — we can source it.</p>
+  </div></div>
+  <section>
+    <div class="wrap grid">
+      {site.products.map((p) => (
+        <article class="card photo-card">
+          <Photo name={p.photo} sizes="(min-width: 1000px) 340px, (min-width: 640px) 45vw, 92vw" widths={[400, 640, 900]} />
+          <div class="body">
+            <h2>{p.title}</h2>
+            <ul class="ticks">{p.items.map((i) => <li>{i}</li>)}</ul>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+  <Cta />
+</Base>

@@ -1,0 +1,28 @@
+{
+  "name": "biomedical-website-hbiomed",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview --port 4321",
+    "check": "astro check",
+    "test": "playwright test",
+    "validate": "html-validate \"dist/**/*.html\""
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "3.2.1",
+    "@fontsource-variable/inter": "5.1.1",
+    "astro": "5.1.1",
+    "lucide-static": "0.468.0",
+    "sharp": "0.33.5"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@axe-core/playwright": "4.10.1",
+    "@playwright/test": "1.49.1",
+    "html-validate": "8.27.0",
+    "typescript": "^5.7.2"
+  }
+}

@@ -1,0 +1,23 @@
+---
+import Base from '../layouts/Base.astro';
+import Photo from '../components/Photo.astro';
+import Cta from '../components/Cta.astro';
+import { c, site } from '../lib/site';
+const a = site.about;
+---
+<Base title="About" description={`About ${c.name}. ${c.tagline}`} path="/about/">
+  <div class="page-head"><div class="wrap">
+    <h1>{a.title}</h1>
+    <p>{c.tagline}</p>
+  </div></div>
+  <section>
+    <div class="wrap split">
+      <div>
+        {a.paragraphs.map((p) => <p>{p}</p>)}
+        <ul class="ticks">{a.points.map((p) => <li>{p}</li>)}</ul>
+      </div>
+      <Photo name={a.photo} sizes="(min-width: 860px) 520px, 92vw" widths={[480, 800, 1100]} />
+    </div>
+  </section>
+  <Cta />
+</Base>

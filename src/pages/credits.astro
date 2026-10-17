@@ -1,0 +1,13 @@
+---
+import Base from '../layouts/Base.astro';
+import credits from '../../photo-credits.json';
+---
+<Base title="Photo credits" path="/credits/">
+  <div class="page-head"><div class="wrap"><h1>Photo credits</h1><p>Free-licence photographs used on this site.</p></div></div>
+  <section><div class="wrap prose">
+    <p>Photographs are published under the <a href="https://unsplash.com/license" rel="noopener">Unsplash License</a>. Thank you to the photographers.</p>
+    <ul class="ticks">
+      {credits.map((p) => <li>{p.subject} — <a href={p.page} rel="noopener">{p.photographer}</a> on Unsplash</li>)}
+    </ul>
+  </div></section>
+</Base>

@@ -1,0 +1,29 @@
+---
+import Base from '../layouts/Base.astro';
+import { c, site } from '../lib/site';
+const key = site.contact.web3formsKey;
+---
+<Base title="Privacy" description={`How ${c.name} handles information sent through this website.`} path="/privacy/">
+  <div class="page-head"><div class="wrap">
+    <h1>Privacy</h1>
+    <p>Last updated {site.legal.updated}</p>
+  </div></div>
+  <section>
+    <div class="wrap prose">
+      <p>This website is published by {c.name}, {c.address}. We keep it simple and collect as little as possible.</p>
+      <h2>What we collect</h2>
+      <ul class="ticks">
+        <li><b>Nothing automatically.</b> This site sets no cookies and uses no analytics or advertising trackers.</li>
+        {key
+          ? <li><b>Enquiry form.</b> If you send an enquiry, the details you type (name, phone, optional email, message) are delivered to us by email through the Web3Forms service, which processes them on our behalf. We use them only to reply to you.</li>
+          : <li><b>Contact.</b> If you call, message or email us, we receive the details you choose to share.</li>}
+      </ul>
+      <h2>Third parties</h2>
+      <p>Fonts and images are served from this site. Links to WhatsApp, maps or social networks are governed by those services’ own policies once you follow them.</p>
+      <h2>Your choices</h2>
+      <p>To ask what we hold about you, or to have it deleted, contact us at <a href={`mailto:${site.legal.privacyContact}`}>{site.legal.privacyContact}</a>.</p>
+      <h2>Photographs</h2>
+      <p>Some images are free-licence stock photographs; credits are listed in the <a href={`${import.meta.env.BASE_URL}credits/`}>photo credits</a>.</p>
+    </div>
+  </section>
+</Base>
