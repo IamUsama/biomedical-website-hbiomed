@@ -10,7 +10,7 @@ const key = site.contact.web3formsKey;
   </div></div>
   <section>
     <div class="wrap prose">
-      <p>This website is published by {c.name}, {c.address}. We keep it simple and collect as little as possible.</p>
+      <p>This website is published by {c.name}{c.address ? `, ${c.address}` : ""}. We keep it simple and collect as little as possible.</p>
       <h2>What we collect</h2>
       <ul class="ticks">
         <li><b>Nothing automatically.</b> This site sets no cookies and uses no analytics or advertising trackers.</li>

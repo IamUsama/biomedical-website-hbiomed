@@ -14,7 +14,7 @@ const key = site.contact.web3formsKey;
         <div class="row"><span class="icon" set:html={icon('phone')} /><div><b>Phone</b><a href={telHref(c.phone)}>{prettyPhone(c.phone)}</a></div></div>
         {c.whatsapp && <div class="row"><span class="icon" set:html={icon('message-circle')} /><div><b>WhatsApp</b><a href={waHref(c.whatsapp, `Hello ${c.name}, I would like to enquire about…`)} rel="noopener">Message us</a></div></div>}
         {c.email && <div class="row"><span class="icon" set:html={icon('mail')} /><div><b>Email</b><a href={`mailto:${c.email}`}>{c.email}</a></div></div>}
-        <div class="row"><span class="icon" set:html={icon('map-pin')} /><div><b>Address</b>{c.address}{c.mapUrl && <Fragment> · <a href={c.mapUrl} rel="noopener">Open in Maps</a></Fragment>}</div></div>
+        {(c.address || c.mapUrl) && <div class="row"><span class="icon" set:html={icon('map-pin')} /><div><b>Address</b>{c.address}{c.mapUrl && <Fragment> · <a href={c.mapUrl} rel="noopener">Open in Maps</a></Fragment>}</div></div>}
         {c.hours && <div class="row"><span class="icon" set:html={icon('clock')} /><div><b>Hours</b>{c.hours}</div></div>}
       </div>
 

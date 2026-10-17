@@ -25,7 +25,7 @@ const ld = {
   image: ogImage,
   telephone: `+${c.phone}`,
   ...(c.email ? { email: c.email } : {}),
-  address: { '@type': 'PostalAddress', streetAddress: c.address, addressLocality: c.city, addressCountry: c.country },
+  address: { '@type': 'PostalAddress', ...(c.address ? { streetAddress: c.address } : {}), addressLocality: c.city, addressCountry: c.country },
   ...(sameAs.length ? { sameAs } : {}),
 };
 const csp = "default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; connect-src 'self' https://api.web3forms.com; form-action 'self'; base-uri 'self'; object-src 'none'";
@@ -100,7 +100,7 @@ const csp = "default-src 'self'; img-src 'self' data:; style-src 'self'; script-
           <div>
             <h2>Contact</h2>
             <ul>
-              <li>{c.address}</li>
+              {c.address && <li>{c.address}</li>}
               <li><a href={telHref(c.phone)}>{prettyPhone(c.phone)}</a></li>
               {c.email && <li><a href={`mailto:${c.email}`}>{c.email}</a></li>}
               {c.hours && <li>{c.hours}</li>}
